@@ -1,0 +1,899 @@
+﻿glossary: #test JET
+  terms: [
+    {
+      term: "Data"
+      meaning: "An android from the 24th century who serves on the star ship Enterprise.<br><em>Data kicked some borg ass and then fed his cat lunch.</em>"
+    }
+    {
+      slides: [
+        10001
+      ]
+      term: "Hipsterectomy"
+      meaning: "The removal or dismissal of what is largely accepted to be cool or trendy. The process of de-hipsterizing someone or something."
+    }
+    {
+      term: "Graph"
+      meaning: "A slang term for a sketching of what someone plans on tagging. graffiti. <br><em>NOT A CHART!</em>"
+    }
+  ]
+  title: "Glossaire"
+slides: [
+  {
+    id: 0
+    level: 0
+  }
+  {
+    title: "Introduction"
+    id: 10
+    level: 1
+  }
+  {
+    parent_id: 10
+    title: "Je suis un titre de niveau 2"
+    id: 101
+    level: 2
+  }
+  {
+    title: "Construire un écran"
+    id: 20
+    level: 1
+  }
+  {
+    parent_id: 20
+    title: "barchart"
+    id: 201
+    level: 2
+  }
+  {
+    parent_id: 20
+    title: "linechart"
+    id: 202
+    level: 2
+  }
+  {
+    parent_id: 20
+    title: "horizontalBarchart"
+    id: 203
+    level: 2
+  }
+  {
+    parent_id: 20
+    title: "leaderboardCenteredAverage"
+    id: 204
+    level: 2
+  }
+  {
+    parent_id: 20
+    title: "heatmap"
+    id: 205
+    level: 2
+  }
+  {
+    parent_id: 20
+    title: "bubblechart"
+    id: 206
+    level: 2
+  }
+  {
+    parent_id: 20
+    title: "stackedBarchart"
+    id: 207
+    level: 2
+  }
+  {
+    title: "Features avancées"
+    id: 30
+    level: 1
+  }
+  {
+    title: "Exercice JET"
+    id: 40
+    level: 1
+  }
+  {
+    parent_id: 40
+    title: "Exercice JET"
+    id: 401
+    level: 2
+  }
+  {
+    title: "Simple Barchart"
+    level: 3
+    parent_id: 101
+    source: "Je suis une source"
+    commentary: "Je suis un commentaire"
+    id: 10001
+    chartOptions:
+      filters:
+        "upper-middle":
+          on: "middle_filter"
+          type: "buttons"
+      value: "my_value"
+      label: "my_date"
+      groups: "my_serie"
+      units:
+        my_value: "unite"
+      chartType: "barchart"
+      data:
+        date:
+          format: "%Y-%m-%d %X"
+          selector: "my_date"
+        query:
+          domain: "barchart"
+          bottom_filter: "metric1"
+        precision:
+          my_value: "my_precision"
+      legend:
+        filter: "upper-middle"
+        type: "identity-card"
+  }
+  {
+    title: "Comprendre la structure"
+    level: 3
+    parent_id: 101
+    source: "Je suis une source"
+    commentary: "Je suis un commentaire"
+    id: 10002
+    chartOptions:
+      filters:
+        "upper-middle":
+          on: "middle_filter"
+          type: "buttons"
+      value: "my_value"
+      label: "my_date"
+      groups: "my_serie"
+      units:
+        my_value: "unite"
+      chartType: "barchart"
+      data:
+        date:
+          format: "%Y-%m-%d %X"
+          selector: "my_date"
+        query:
+          domain: "barchart"
+          bottom_filter: "metric1"
+        precision:
+          my_value: "my_precision"
+      legend:
+        filter: "upper-middle"
+        type: "identity-card"
+  }
+  {
+    title: "Changer le Contexte"
+    level: 3
+    parent_id: 101
+    source: "Je suis une source"
+    filters:
+      "upper-middle":
+        on: "indicateur"
+        type: "dropdown"
+    recommendation:
+      advert: "Info"
+      content: "Je suis aussi du html"
+    commentary: "Ce texte est du html, je peux <strong>mettre en gras</strong> ou en <em>italique</em> ou <br>passer à la ligne"
+    id: 10003
+    chartOptions:
+      value: "value"
+      date: "date"
+      kpi:
+        kpi: [
+          {
+            type: "line"
+            label: "Qualité perçue"
+          }
+          {
+            type: "bar"
+            label: "Qualité produite"
+          }
+        ]
+      units:
+        value: [
+          {
+            where:
+              kpi: "Qualité produite"
+            unit: "%"
+          }
+          {
+            where:
+              kpi: "Qualité perçue"
+            unit: ""
+          }
+        ]
+      chartType: "barlinechart"
+      data:
+        date:
+          format: "%Y-%m-%d %X"
+          selector: "date"
+        query:
+          domain: "barlinechart"
+        precision:
+          value: ",.2f"
+      legend: "minimal"
+  }
+  {
+    parent_id: 401
+    title: "Page de JET"
+    charts: [
+      {
+        style: "secondary"
+        value: "my_value_master"
+        crossfilter:
+          on: "year"
+          datasets: [
+            "1"
+          ]
+        date: "year"
+        chartType: "linechart"
+        data:
+          date:
+            selector: "year"
+            format: "%Y"
+          query:
+            domain: "master"
+        id: 0
+      }
+      {
+        value: "my_value_slave"
+        id: 1
+        chartType: "barchart"
+        label: "label"
+        data:
+          date:
+            selector: "year"
+            format: "%Y"
+          query:
+            domain: "slave"
+        legend:
+          filter: "upper-middle"
+          type: "identity-card"
+      }
+    ]
+    source: "Spreadsheet"
+    filters:
+      "bottom-right":
+        on: "filter"
+        datasets: [
+          1
+        ]
+        type: "buttons"
+    recommendation:
+      advert: "Warning"
+      content: "Les infos s affichent ici"
+    commentary: "Ceci est la première page créée par JET"
+    level: 3
+    id: 40001
+  }
+  {
+    parent_id: 101
+    title: "Je n'ai pas de contexte"
+    id: 10004
+    chartOptions:
+      filters:
+        "upper-middle":
+          on: "middle_filter"
+          type: "buttons"
+      value: "my_value"
+      label: "my_date"
+      groups: "my_serie"
+      units:
+        my_value: "unite"
+      chartType: "barchart"
+      data:
+        date:
+          format: "%Y-%m-%d %X"
+          selector: "my_date"
+        query:
+          domain: "barchart"
+          bottom_filter: "metric1"
+        precision:
+          my_value: "my_precision"
+      legend:
+        filter: "upper-middle"
+        type: "identity-card"
+    level: 3
+  }
+  {
+    title: "Donner du contexte à la donnée"
+    level: 3
+    parent_id: 101
+    commentary: "Utiliser <strong>précision</strong> et <strong>unité</strong> pour donner du contexte à la donnée"
+    id: 10005
+    chartOptions:
+      sort: "desc"
+      packs: "pack"
+      value: "my_value"
+      label: "Evenements"
+      packNames: true
+      meta: "Effectif"
+      sparklines:
+        prefix: "sparkline"
+        legend: ""
+      showAverage: true
+      units:
+        my_value: " nbr d'interventions"
+      chartType: "horizontalBarchart"
+      data:
+        query:
+          domain: "horizontal_barchart_sparklines"
+        precision:
+          my_value: ".2f"
+  }
+  {
+    title: "Filters time!"
+    level: 3
+    parent_id: 101
+    filters:
+      "bottom-right":
+        on: "time"
+        type: "dropdown"
+    id: 10006
+    chartOptions:
+      packs: "pack"
+      average:
+        unit:
+          average_value: "%"
+        data:
+          query:
+            domain: "centered_avg_avg"
+        precision:
+          average_value: ".0f"
+        value: "average_value"
+        joins: [
+          "type"
+          "time"
+        ]
+      variation: "evolution"
+      label: "entity"
+      value: "value"
+      filters:
+        "upper-right":
+          on: "type"
+          type: "dropdown"
+      units:
+        evolution: "pts"
+        value: "%"
+      chartType: "leaderboardCenteredAverage"
+      data:
+        query:
+          domain: "centered_avg_data"
+      legend: false
+  }
+  {
+    parent_id: 101
+    title: "Introduction au corps du chart"
+    id: 10007
+    chartOptions:
+      variation: "my_variation"
+      label: "Evenements"
+      value: "my_value"
+      units:
+        my_variation: " %"
+        my_value: " kilos"
+      chartType: "horizontalBarchart"
+      data:
+        query:
+          domain: "horizontal_barchart_sparklines"
+        precision:
+          my_variation: ",1f"
+          my_value: ",2f"
+    level: 3
+  }
+  {
+    title: "Barchart de référence"
+    level: 3
+    parent_id: 201
+    source:
+      data:
+        query: [
+          {
+            $match:
+              domain: "barchart_full_features"
+          }
+          {
+            $limit: 1
+          }
+        ]
+      value: "Je suis une source dynamique, dernière mise à jour : <%= update %>"
+    filters:
+      "bottom-right":
+        on: "bottom_filter"
+        type: "buttons"
+    recommendation:
+      advert: "Info"
+      content: "Je suis aussi du html"
+    commentary: "Ce texte est du html, je peux <strong>mettre en gras</strong> ou en <em>italique</em> ou <br>passer à la ligne"
+    id: 20101
+    chartOptions:
+      filters:
+        "upper-middle":
+          on: "middle_filter"
+          type: "buttons"
+      value: "my_value"
+      label: "my_date"
+      groups: "my_serie"
+      units:
+        my_value: "unite"
+      chartType: "barchart"
+      data:
+        date:
+          format: "%Y-%m-%d %X"
+          selector: "my_date"
+        query:
+          domain: "barchart_full_features"
+        precision:
+          my_value: "my_precision"
+      legend:
+        filter: "upper-middle"
+        type: "identity-card"
+  }
+  {
+    title: "Barchart d'exo"
+    level: 3
+    parent_id: 201
+    source:
+      data:
+        query: [
+          {
+            $match:
+              domain: "barchart_full_features"
+          }
+          {
+            $limit: 1
+          }
+        ]
+      value: "Je suis une source dynamique, dernière mise à jour : <%= update %>"
+    filters:
+      "bottom-right":
+        on: "my_date"
+        type: "slider"
+    recommendation:
+      advert: "Info"
+      content: "Je suis aussi du html"
+    commentary: "Ce texte est du html, je peux <strong>mettre en gras</strong> ou en <em>italique</em> ou <br>passer à la ligne"
+    id: 20102
+    chartOptions:
+      filters:
+        "upper-middle":
+          on: "middle_filter"
+          type: "buttons"
+      value: "my_value"
+      label: "bottom-filter"
+      groups: "my_serie"
+      units:
+        my_value: "unite"
+      chartType: "barchart"
+      data:
+        date:
+          format: "%Y-%m-%d %X"
+          selector: "my_date"
+        query:
+          domain: "barchart_full_features"
+        precision:
+          my_value: "my_precision"
+      legend:
+        filter: "upper-middle"
+        type: "identity-card"
+  }
+  {
+    title: "Barchart d'exo JET"
+    level: 3
+    parent_id: 201
+    source:
+      data:
+        query: [
+          {
+            $match:
+              domain: "barchart_full_features"
+          }
+          {
+            $limit: 1
+          }
+        ]
+      value: "Je suis une source dynamique, dernière mise à jour : <%= update %>"
+    filters:
+      "bottom-right":
+        on: "my_date"
+        type: "slider"
+    recommendation:
+      advert: "Info"
+      content: "Je suis aussi du html"
+    commentary: "Ce texte est du html, je peux <strong>mettre en gras</strong> ou en <em>italique</em> ou <br>passer à la ligne"
+    id: 20103
+    chartOptions:
+      filters:
+        "upper-middle":
+          on: "middle_filter"
+          type: "buttons"
+      value: "my_value"
+      label: "bottom_filter"
+      groups: "my_serie"
+      units:
+        my_value: "unite"
+      chartType: "barchart"
+      data:
+        date:
+          format: "%Y-%m-%d %X"
+          selector: "my_date"
+        query:
+          domain: "barchart_full_features"
+        precision:
+          my_value: "my_precision"
+      legend:
+        filter: "upper-middle"
+        type: "identity-card"
+  }
+  {
+    title: "Linechart de référence"
+    level: 3
+    parent_id: 202
+    source:
+      data:
+        query: [
+          {
+            $match:
+              domain: "barchart_full_features"
+          }
+          {
+            $limit: 1
+          }
+        ]
+      value: "Je suis une source dynamique, dernière mise à jour : <%= update %>"
+    filters:
+      "bottom-right":
+        on: "bottom_filter"
+        type: "buttons"
+    recommendation:
+      advert: "Info"
+      content: "Je suis aussi du html"
+    commentary: "Ce texte est du html, je peux <strong>mettre en gras</strong> ou en <em>italique</em> ou <br>passer à la ligne"
+    id: 20201
+    chartOptions:
+      filters:
+        "upper-middle":
+          on: "middle_filter"
+          type: "buttons"
+      value: "my_value"
+      units:
+        my_value: "unite"
+      groups: "my_serie"
+      date: "my_date"
+      chartType: "linechart"
+      data:
+        date:
+          format: "%Y-%m-%d %X"
+          selector: "my_date"
+        query:
+          domain: "barchart_full_features"
+        precision:
+          my_value: "my_precision"
+      legend:
+        filter: "upper-middle"
+        type: "identity-card"
+  }
+  {
+    title: "horizontalBarchart de référence"
+    level: 3
+    parent_id: 203
+    source:
+      data:
+        query: [
+          {
+            $match:
+              domain: "horizontal_barchart"
+          }
+          {
+            $sort:
+              my_date: -1
+          }
+          {
+            $limit: 1
+          }
+        ]
+      value: "Je suis une source dynamique, dernière mise à jour : <%= my_date %>"
+    recommendation:
+      advert: "Info"
+      content: "Je suis aussi du html"
+    commentary: "Ce texte est du html, je peux <strong>mettre en gras</strong> ou en <em>italique</em> ou <br>passer à la ligne"
+    id: 20301
+    chartOptions:
+      sort: "desc"
+      sparklines:
+        orderDates: true
+        value: "my_value"
+        joins: [
+          "Evenements"
+        ]
+        date: "my_date"
+        data:
+          query:
+            domain: "horizontal_barchart_sparklines"
+        legend: "Évolution<br>sur 8 mois"
+        unit: "my_unit"
+      variation: "evolution"
+      label: "Evenements"
+      variationLegend: "Écart<br>année passée"
+      meta: "Effectif"
+      value: "Pourcentage"
+      groups: "pack"
+      units:
+        evolution: "my_evolution_unit"
+        Pourcentage: "my_value_unit"
+      chartType: "horizontalBarchart"
+      data:
+        query:
+          domain: "horizontal_barchart"
+        precision:
+          evolution: "my_evolution_precision"
+          Pourcentage: "my_value_precision"
+  }
+  {
+    title: "leaderboardCenteredAverage de référence"
+    level: 3
+    parent_id: 204
+    source:
+      data:
+        query: [
+          {
+            $match:
+              domain: "leaderboard_centered_avg"
+          }
+          {
+            $sort:
+              my_date: -1
+          }
+          {
+            $limit: 1
+          }
+        ]
+      value: "Je suis une source dynamique, dernière mise à jour : <%= my_date %>"
+    filters:
+      "bottom-right":
+        on: "my_date"
+        type: "slider"
+    recommendation:
+      advert: "Info"
+      content: "Je suis aussi du html"
+    commentary: "Ce texte est du html, je peux <strong>mettre en gras</strong> ou en <em>italique</em> ou <br>passer à la ligne"
+    id: 20401
+    chartOptions:
+      packs: "my_packs"
+      average:
+        data:
+          query:
+            domain: "leaderboard_centered_avg_avg"
+          precision:
+            my_value: "my_precision"
+        joins: [
+          "my_date"
+        ]
+        value: "my_value"
+      variation: "my_variation"
+      label: "my_label"
+      variationLegend: "Écart vs budget"
+      value: "my_value"
+      units:
+        my_variation: "my_variation_unit"
+        my_value: "my_value_unit"
+      chartType: "leaderboardCenteredAverage"
+      data:
+        query:
+          domain: "leaderboard_centered_avg"
+        precision:
+          my_value: "my_precision"
+  }
+  {
+    title: "heatmap de référence"
+    level: 3
+    parent_id: 205
+    source:
+      data:
+        query: [
+          {
+            $match:
+              domain: "heatmap"
+          }
+          {
+            $sort:
+              my_date: -1
+          }
+          {
+            $limit: 1
+          }
+        ]
+      value: "Je suis une source dynamique, dernière mise à jour : <%= my_date %>"
+    filters:
+      "bottom-right":
+        on: "my_breakdown"
+        type: "buttons"
+    recommendation:
+      advert: "Info"
+      content: "Je suis aussi du html"
+    commentary: "Ce texte est du html, je peux <strong>mettre en gras</strong> ou en <em>italique</em> ou <br>passer à la ligne"
+    id: 20501
+    chartOptions:
+      x: "x"
+      target: "my_target"
+      xpack: "xpack"
+      value: "my_value"
+      sentiment:
+        my_value:
+          domain: [
+            "0.9*my_target"
+            "my_target"
+          ]
+          range: [
+            "negative"
+            "neutral"
+            "positive"
+          ]
+      units:
+        my_variation: " pt"
+        my_value: " %"
+      meta: []
+      variation: "my_variation"
+      ypack: "ypack"
+      y: "y"
+      chartType: "heatmap"
+      data:
+        query:
+          domain: "heatmap"
+      legend: true
+  }
+  {
+    title: "bubblechart de référence"
+    level: 3
+    parent_id: 206
+    source:
+      data:
+        query: [
+          {
+            $match:
+              domain: "bubble"
+          }
+          {
+            $sort:
+              my_date: -1
+          }
+          {
+            $limit: 1
+          }
+        ]
+      value: "Je suis une source dynamique, dernière mise à jour : <%= my_date %>"
+    recommendation:
+      advert: "Info"
+      content: "Je suis aussi du html"
+    commentary: "Ce texte est du html, je peux <strong>mettre en gras</strong> ou en <em>italique</em> ou <br>passer à la ligne"
+    id: 20601
+    chartOptions:
+      withBenchmark: false
+      fixedScale: false
+      quadrants:
+        y: 1
+        x: 2
+        labels: [
+          "Attention au tx de gravité"
+          "Non performance"
+          "Trajectoire d'excellence"
+          "Attention au taux de fréquence"
+        ]
+        sentiments: [
+          "warning"
+          "negative"
+          "positive"
+          "warning"
+        ]
+      label: "my_label"
+      cy: "gravite"
+      cx: "frequence"
+      drill:
+        levelsOrder: [
+          "main"
+          "sub"
+        ]
+        group: "my_date"
+        level: "drill_level"
+      units:
+        cy: "gravite_unit"
+        cx: "frequence_unit"
+        r: "effectif_unit"
+      chartType: "bubblechart"
+      r: "effectif"
+      data:
+        query:
+          domain: "bubble"
+      legend: true
+  }
+  {
+    title: "stackedBarchart de référence"
+    level: 3
+    parent_id: 207
+    source:
+      data:
+        query: [
+          {
+            $match:
+              domain: "stacked_barchart"
+          }
+          {
+            $sort:
+              my_date: -1
+          }
+          {
+            $limit: 1
+          }
+        ]
+      value: "Je suis une source dynamique, dernière mise à jour : <%= my_date %>"
+    filters:
+      "bottom-right":
+        on: "breakdown"
+        type: "buttons"
+    recommendation:
+      advert: "Info"
+      content: "Je suis aussi du html"
+    commentary: "Ce texte est du html, je peux <strong>mettre en gras</strong> ou en <em>italique</em> ou <br>passer à la ligne"
+    id: 30206
+    chartOptions:
+      groupsOrder: [
+        "au moins 1 fois/mois"
+        "plusieurs fois/an"
+        "1 fois/an"
+        "moins souvent"
+        "jamais"
+      ]
+      filters:
+        "upper-right":
+          on: "pays"
+          type: "dropdown"
+      unstackable: true
+      value: "part"
+      label: "catégorie"
+      units:
+        part: "%"
+        clients: "répondants"
+      meta: [
+        "clients"
+      ]
+      groups: "fréquence"
+      hideTotal: true
+      labelsOrder: [
+        "moins de 18 ans"
+      ]
+      visualSelection: true
+      chartType: "stackedBarchart"
+      outliers: [
+        {
+          group: "moins souvent"
+          label: "18-24 ans 2011"
+        }
+        {
+          group: "moins souvent"
+          label: "36-45 ans"
+        }
+        {
+          group: "jamais"
+          label: "56-65 ans"
+        }
+        {
+          group: "plusieurs fois/an"
+          label: "Agglo 1 2014"
+        }
+        {
+          group: "plusieurs fois/an"
+          label: "Agglo 3"
+        }
+        {
+          group: "1 fois/an"
+          label: "Grande Ville 2"
+        }
+        {
+          group: "Au moins 1 fois/an"
+          label: "Ville moyenne 4"
+        }
+      ]
+      data:
+        query:
+          domain: "stacked_barchart"
+      legend: true
+  }
+]
+settings: []

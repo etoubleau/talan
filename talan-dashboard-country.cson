@@ -1,0 +1,133 @@
+﻿report: "{{ report_id }}"
+default: "{{ default }}"
+entityName: "{{ zone }}"
+id: "{{ index }}"
+categories: [
+  {
+    kpis: [
+      {
+        compute:
+          badge: "value - comparison"
+        name: "Metric"
+        sentiment:
+          value:
+            domain: [
+              "comparison"
+            ]
+            range: [
+              "negative"
+              "positive"
+            ]
+        badge: "badge"
+        precision:
+          value: ".1f"
+        value: "value"
+        source: "2015, source Smart Toucan"
+        slide: 32204
+        type: "value-dynamic"
+        data:
+          comparison:
+            query:
+              default: 1
+              country: "France"
+              domain: "dashboards"
+            field: "target"
+          value:
+            query:
+              "Retailer name": "France"
+              breakdown: "<%= requestersManager.date %>"
+              domain: "ranks"
+            field: "value"
+        id: 0
+        unit: "%"
+      }
+      {
+        source: "2015, source Smart Toucan"
+        slide: 100
+        type: "leaderboard"
+        name: "Classement"
+        chartOptions:
+          units:
+            value: " €"
+          data:
+            query:
+              breakdown: "<%= requestersManager.date %>"
+              domain: "ranks"
+          value: "value"
+          label: "Retailer name"
+      }
+    ]
+    name: "Performance"
+  }
+  {
+    kpis: [
+      {
+        source: "2015, source Smart Toucan"
+        unit: " p/h"
+        type: "line"
+        name: "Traffic"
+        chartOptions:
+          date: "month"
+          data:
+            query:
+              breakdown: "<%= requestersManager.date %>"
+              domain: "lines1"
+          value: "value"
+      }
+      {
+        name: "Satisfaction"
+        value: "9.8"
+        source: "2015, source Smart Toucan"
+        chartOptions:
+          date: "month"
+          data:
+            query:
+              breakdown: "<%= requestersManager.date %>"
+              domain: "lines2"
+          value: "value"
+        type: "value-sparkline"
+        unit: " / 10"
+      }
+    ]
+    name: "Evolution"
+  }
+  {
+    kpis: [
+      {
+        src: "crea-home.jpg"
+        type: "media-img"
+      }
+      {
+        type: "media-video"
+        id: "50352359"
+        provider: "vimeo"
+      }
+    ]
+    name: "Metrics"
+  }
+  {
+    kpis: [
+      {
+        content: "content"
+        data:
+          query:
+            domain: "text_home"
+        type: "text-dynamic"
+        name: "Long free text"
+        source: "2015, source Smart Toucan"
+      }
+      {
+        content: "content"
+        data:
+          file:
+            type: "pdf"
+            name: "free_pdf_home"
+        style:
+          width: "700px"
+        type: "text-dynamic"
+        name: "Votre Business Case"
+      }
+    ]
+    name: "Miscellaneous"
+  }
+]
